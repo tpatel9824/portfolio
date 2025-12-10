@@ -750,7 +750,7 @@
           <a href="#contact">Contact</a>
           <a
             class="nav-cta"
-            href="YOUR_RESUME_LINK.pdf"  <!-- TODO: put your actual resume URL -->
+            href="https://tpatel9824.github.io/portfolio/res_TP.pdf"  
             target="_blank"
             rel="noopener"
           >
@@ -763,7 +763,7 @@
 
     <main>
       <div class="shell">
-        <!-- 1. INTRO + WHAT DRIVES YOU -->
+        <!-- 1. INTRO + WHAT DRIVES ME -->
         <section id="intro" class="hero">
           <div>
             <div class="hero-kicker">
@@ -774,7 +774,7 @@
               I want to build <span>useful</span> AI, not just clever demos.
             </h1>
             <p class="hero-subtitle">
-              I'm <strong>Kashyap</strong>, a Computer Science graduate focused on
+              I'm <strong>Tejas</strong>, a Computer Science graduate focused on
               <strong>Artificial Intelligence</strong> and <strong>Data Engineering</strong>.
               What drives me is taking ideas from research papers and raw data
               and turning them into tools that actually help people learn, decide,
@@ -797,7 +797,7 @@
               </span>
               <span>
                 <b>Tech</b>
-                Python, SQL, Java, Databricks, Azure
+                Python, SQL, Java, Databricks
               </span>
               <span>
                 <b>Location</b>
@@ -872,7 +872,7 @@
                   </li>
                   <li>
                     Designing <strong>reconciliation pipelines</strong> between
-                    Oracle and Databricks using SQL, PySpark, and Azure Data Factory.
+                    Oracle and Databricks using SQL, PySpark.
                   </li>
                   <li>
                     Using <strong>LLMs to auto-generate dataset and schema
@@ -903,7 +903,7 @@
                   </ul>
                 </div>
 
-                <!-- TODO: add more roles here if needed -->
+                <!-- TODO: add more roles for future -->
               </div>
             </div>
 
@@ -1044,152 +1044,243 @@
 
         <!-- 4. PROJECTS IN DETAIL -->
         <section id="projects">
-          <div class="section-header">
-            <h2 class="section-title">Projects</h2>
-            <p class="section-subtitle">
-              A deeper look at selected projects. Each one shows how I think about
-              problem framing, data, and impact – not just the code.
-            </p>
-          </div>
+  <div class="section-header">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">
+      A deeper look at selected projects across deep learning, recommendation systems,
+      EEG/BCI, educational AI, and representation learning.
+    </p>
+  </div>
 
-          <div class="project-grid">
-            <!-- Project 1 -->
-            <article class="card">
-              <div class="project-label">Generative AI • Education</div>
-              <h3 class="project-title">Automated Feedback System for CS Courses</h3>
-              <p class="project-meta">
-                LLM-powered system that reads student answers to CS questions and generates
-                targeted feedback instead of just “correct/incorrect”.
-              </p>
+  <div class="project-grid">
+    <!-- Project 1: 3D Image Reconstruction -->
+    <article class="card">
+      <div class="project-label">Deep Learning • 3D Vision</div>
+      <h3 class="project-title">3D Image Reconstruction from Multi-View 2D Images</h3>
+      <p class="project-meta">
+        Implemented deep-learning pipelines to reconstruct 3D voxel grids from multiple
+        masked 2D images of an object using the Pix3D dataset.
+      </p>
 
-              <div class="project-section-heading">Problem</div>
-              <ul class="project-list">
-                <li>Students wait days for feedback on assignments and quizzes.</li>
-                <li>Instructors struggle to give detailed, individualized comments at scale.</li>
-              </ul>
+      <div class="project-section-heading">What I built</div>
+      <ul class="project-list">
+        <li>
+          Created a custom multi-view dataset loader that reads several RGB views per object,
+          applies foreground masks, resizes/normalizes images, and loads the corresponding
+          voxel grids to a fixed size (e.g., 50×50×50).
+        </li>
+        <li>
+          Implemented a multi-view CNN classifier to predict object category from multiple
+          masked views.
+        </li>
+        <li>
+          Built an R2N2-inspired reconstruction model that encodes views into latent vectors
+          and decodes them with 3D transposed convolutions into voxel occupancy grids.
+        </li>
+        <li>
+          Experimented with an alternative model that aggregates multi-view embeddings
+          and reconstructs voxels via fully connected layers.
+        </li>
+      </ul>
 
-              <div class="project-section-heading">What I built</div>
-              <ul class="project-list">
-                <li>Curated a dataset of 1000+ question–answer pairs with rich reference feedback.</li>
-                <li>Designed prompt templates to ask LLMs for structured, rubric-based feedback.</li>
-                <li>Explored a neural network classifier to categorize answers (e.g., correct, partial, misconception).</li>
-                <li>Implemented a very simple web UI (Streamlit / Flask) for demo and instructor testing.</li>
-              </ul>
+      <div class="project-section-heading">Tech &amp; evaluation</div>
+      <ul class="project-list">
+        <li>
+          Trained with binary cross-entropy for voxel occupancy and Adam optimization,
+          visualizing 3D reconstructions for qualitative evaluation.
+        </li>
+      </ul>
 
-              <div class="project-section-heading">Impact &amp; learnings</div>
-              <ul class="project-list">
-                <li>Showed that LLMs can provide helpful hints while still encouraging reasoning.</li>
-                <li>Learned where LLMs hallucinate and how to constrain them with better prompts and rubrics.</li>
-              </ul>
+      <div class="project-tags">
+        <span>Python</span><span>PyTorch</span><span>3D CNNs</span>
+        <span>Computer Vision</span><span>Pix3D</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank" rel="noopener">Code / notebook ↗</a>
+      </div>
+    </article>
 
-              <div class="project-tags">
-                <span>Python</span><span>LLMs</span><span>Prompt Engineering</span>
-                <span>Education</span><span>Streamlit / Flask</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener">GitHub / notebook ↗</a>
-                <a href="#" target="_blank" rel="noopener">Project report ↗</a>
-              </div>
-            </article>
+    <!-- Project 2: AI Mood DJ -->
+    <article class="card">
+      <div class="project-label">Recommender Systems • Affective Computing</div>
+      <h3 class="project-title">AI Mood DJ – Emotion-Aware Music Recommender</h3>
+      <p class="project-meta">
+        Interactive web app that uses your webcam to detect facial emotion and then
+        recommends music from Spotify that matches your mood.
+      </p>
 
-            <!-- Project 2 -->
-            <article class="card">
-              <div class="project-label">Data Engineering • LLMs</div>
-              <h3 class="project-title">AI-Assisted Schema Documentation</h3>
-              <p class="project-meta">
-                Internal-style tool that uses LLMs to generate human-readable descriptions
-                for thousands of database tables and columns.
-              </p>
+      <div class="project-section-heading">What I built</div>
+      <ul class="project-list">
+        <li>
+          Developed a Streamlit front end that opens a live camera stream, captures a frame
+          on click, and shows the snapshot back to the user.
+        </li>
+        <li>
+          Integrated DeepFace to analyze the captured face and infer the dominant emotion
+          (e.g., happy, sad, neutral).
+        </li>
+        <li>
+          Queried Spotify’s Web API for tracks from emotion-specific playlists and surfaced
+          a suggested track with album cover and an “Open in Spotify” link.
+        </li>
+        <li>
+          Handled webcam streams, emotion detection, playlist selection, and app state for
+          a smooth end-to-end experience.
+        </li>
+      </ul>
 
-              <div class="project-section-heading">Problem</div>
-              <ul class="project-list">
-                <li>Analysts and engineers spent too much time figuring out what each table/column meant.</li>
-                <li>Documentation across systems was incomplete or inconsistent.</li>
-              </ul>
+      <div class="project-tags">
+        <span>Python</span><span>Streamlit</span><span>DeepFace</span>
+        <span>OpenCV</span><span>Spotify Web API</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="#" target="_blank" rel="noopener">Live demo ↗</a>
+      </div>
+    </article>
 
-              <div class="project-section-heading">What I built</div>
-              <ul class="project-list">
-                <li>Extracted metadata for 17k+ tables/columns into Databricks.</li>
-                <li>Designed PySpark notebooks to feed metadata into an LLM with safe prompts.</li>
-                <li>Generated draft descriptions and wrote them back to a central catalog.</li>
-              </ul>
+    <!-- Project 3: EEG Motor Imagery -->
+    <article class="card">
+      <div class="project-label">EEG / BCI • ML &amp; DL</div>
+      <h3 class="project-title">EEG Motor Imagery Classification with PhysioNet</h3>
+      <p class="project-meta">
+        Classified two motor imagery tasks (e.g., left vs. right) using EEG data from
+        PhysioNet’s EEG Motor Movement/Imagery database.
+      </p>
 
-              <div class="project-section-heading">Impact &amp; learnings</div>
-              <ul class="project-list">
-                <li>Improved discoverability for new team members and downstream users.</li>
-                <li>Learned how to structure high-volume LLM calls and handle failures gracefully.</li>
-              </ul>
+      <div class="project-section-heading">What I built</div>
+      <ul class="project-list">
+        <li>
+          Loaded raw EEG with MNE, applied 1–40 Hz band-pass filtering, and created
+          4-second epochs around relevant events.
+        </li>
+        <li>
+          Restricted data to two classes, framing a binary classification problem on
+          multi-channel EEG segments.
+        </li>
+        <li>
+          Implemented a baseline pipeline: bandpower features (theta, alpha, beta, gamma)
+          via Welch’s method → SVM classifier with confusion-matrix evaluation.
+        </li>
+        <li>
+          Implemented an EEGNet-style CNN in PyTorch operating directly on
+          (trials × channels × time) tensors with temporal &amp; depthwise convolutions.
+        </li>
+      </ul>
 
-              <div class="project-tags">
-                <span>Databricks</span><span>PySpark</span><span>LLMs</span><span>Metadata</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener">Design doc ↗</a>
-              </div>
-            </article>
+      <div class="project-section-heading">Tech &amp; evaluation</div>
+      <ul class="project-list">
+        <li>
+          Tracked training curves and compared deep model vs. SVM using confusion matrices
+          and single-trial predictions.
+        </li>
+      </ul>
 
-            <!-- Project 3 -->
-            <article class="card">
-              <div class="project-label">Web App • Mental Wellness</div>
-              <h3 class="project-title">MindHaven – Mental Wellness Companion</h3>
-              <p class="project-meta">
-                A full-stack web app that combines blogs, exercises, games, music, and AI chat
-                to support mental well-being.
-              </p>
+      <div class="project-tags">
+        <span>Python</span><span>MNE</span><span>PyTorch</span>
+        <span>scikit-learn</span><span>EEG / BCI</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank" rel="noopener">Notebook ↗</a>
+      </div>
+    </article>
 
-              <div class="project-section-heading">What I built</div>
-              <ul class="project-list">
-                <li>React frontend with a clean, calming UI.</li>
-                <li>Node/Express backend for user management and content APIs.</li>
-                <li>LLM integration via Ollama (Llama 3.2) to power a supportive chat experience.</li>
-              </ul>
+    <!-- Project 4: CS Answer Quality & SLUAlgo -->
+    <article class="card">
+      <div class="project-label">NLP • Educational AI</div>
+      <h3 class="project-title">CS Answer Quality Classification &amp; SLUAlgo Feedback</h3>
+      <p class="project-meta">
+        Neural text classifier that predicts the quality of student answers to CS questions
+        and exports results for downstream feedback generation.
+      </p>
 
-              <div class="project-section-heading">Why it matters</div>
-              <ul class="project-list">
-                <li>Explores how AI can support, not replace, real conversations.</li>
-                <li>Blends my interest in UX, mental health, and AI.</li>
-              </ul>
+      <div class="project-section-heading">What I built</div>
+      <ul class="project-list">
+        <li>
+          Compiled ~2,000 GPT-generated CS question–answer pairs with binary labels
+          indicating answer quality.
+        </li>
+        <li>
+          Cleaned answers with regex (removing template phrases like
+          “This is correct answer for:”) so the model focuses on student content.
+        </li>
+        <li>
+          Tokenized with Keras <code>Tokenizer</code>, limited vocab size, and padded sequences
+          to a fixed length.
+        </li>
+        <li>
+          Implemented an LSTM-based classifier with an Embedding layer, stacked LSTMs,
+          and dense layers ending in a sigmoid output.
+        </li>
+      </ul>
 
-              <div class="project-tags">
-                <span>React</span><span>Node.js</span><span>LLMs</span><span>UX</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
-                <a href="#" target="_blank" rel="noopener">Live demo ↗</a>
-              </div>
-            </article>
+      <div class="project-section-heading">Tech &amp; evaluation</div>
+      <ul class="project-list">
+        <li>
+          Trained with binary cross-entropy + Adam, evaluated via classification report
+          and confusion matrix.
+        </li>
+        <li>
+          Exported test predictions with confidence scores to CSV and saved the trained
+          model + tokenizer for reuse in feedback systems.
+        </li>
+      </ul>
 
-            <!-- Project 4 -->
-            <article class="card">
-              <div class="project-label">Networking • Research</div>
-              <h3 class="project-title">Congestion Control Evaluation with Pantheon</h3>
-              <p class="project-meta">
-                Comparative study of congestion control schemes (BBR, Cubic, Verus, etc.)
-                using Pantheon and Mahimahi.
-              </p>
+      <div class="project-tags">
+        <span>Python</span><span>TensorFlow / Keras</span>
+        <span>NLP</span><span>Education</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank" rel="noopener">GitHub / notebook ↗</a>
+      </div>
+    </article>
 
-              <div class="project-section-heading">What I did</div>
-              <ul class="project-list">
-                <li>Ran multiple experiments under different emulated traces (e.g., 12 Mbps constant).</li>
-                <li>Collected and analyzed throughput, latency, and loss metrics.</li>
-                <li>Modified Pantheon behavior and logging where needed to debug issues.</li>
-              </ul>
+    <!-- Project 5: CLIP Flowers-102 -->
+    <article class="card">
+      <div class="project-label">Representation Learning • Zero-Shot</div>
+      <h3 class="project-title">CLIP-Based Analysis of Oxford Flowers-102</h3>
+      <p class="project-meta">
+        Used CLIP embeddings to compare image-based nearest-neighbor classification
+        against text-prompt-based zero-shot classification on Flowers-102.
+      </p>
 
-              <div class="project-section-heading">Why it's relevant</div>
-              <ul class="project-list">
-                <li>Helped me think about systems trade-offs, not just model accuracy.</li>
-                <li>Strengthened my comfort with Linux tooling, scripting, and data analysis.</li>
-              </ul>
+      <div class="project-section-heading">What I built</div>
+      <ul class="project-list">
+        <li>
+          Loaded the Oxford Flowers-102 dataset and labels according to official splits.
+        </li>
+        <li>
+          Computed normalized CLIP image embeddings for training and test sets in
+          GPU-accelerated batches.
+        </li>
+        <li>
+          Implemented an image-based nearest-neighbor classifier in embedding space,
+          copying labels from the closest training image.
+        </li>
+        <li>
+          Implemented a zero-shot setup using prompts like
+          “a picture of a &lt;flower name&gt;” and compared image–text similarities.
+        </li>
+      </ul>
 
-              <div class="project-tags">
-                <span>Pantheon</span><span>Mahimahi</span><span>Python</span><span>Data Analysis</span>
-              </div>
-              <div class="project-links">
-                <a href="#" target="_blank" rel="noopener">Final report ↗</a>
-              </div>
-            </article>
-          </div>
-        </section>
+      <div class="project-section-heading">Tech &amp; evaluation</div>
+      <ul class="project-list">
+        <li>
+          Saved predictions for both methods and computed classification accuracy
+          to directly compare their performance.
+        </li>
+      </ul>
+
+      <div class="project-tags">
+        <span>Python</span><span>PyTorch</span><span>CLIP</span>
+        <span>Hugging Face</span><span>Representation Learning</span>
+      </div>
+      <div class="project-links">
+        <a href="#" target="_blank" rel="noopener">Analysis notebook ↗</a>
+      </div>
+    </article>
+  </div>
+</section>
 
         <!-- CONTACT -->
         <section id="contact">
